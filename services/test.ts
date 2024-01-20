@@ -17,21 +17,12 @@ const apiConfig: AxiosRequestConfig = {
 
 const api = axios.create(apiConfig);
 
-// api.interceptors.request.use((config) => {
-//     const token = useSelector((state: RootState) => state.auth.token);
-//     console.log(token);
-//     // config.headers.Authorization = `Bearer ${token}`;
-//     config.headers.Authorization = `${token}`;
-//     return config;
-// });
-
 export const postLoginTest = async () => {
     try {
         const response = await api.post(`/authenticate`,{
             username: "yeferal",
             password: "123456"
         });
-        // console.log('Respuesta:', response);
         return response
     } catch (error) {
         console.error('Error:', error);
@@ -41,15 +32,12 @@ export const postLoginTest = async () => {
 
 export const getTest = async () => {
     try {
-        
-        // config.headers.Authorization = token;
         const response = await api.get(`/test`, {
             headers: {
                 Authorization: "Bearer "+token
             },
             withCredentials: true
         });
-        // console.log('Respuesta:', response);
         return response
     } catch (error) {
         console.error('Error:', error);

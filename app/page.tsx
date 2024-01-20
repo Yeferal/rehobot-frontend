@@ -1,17 +1,16 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-// import { ReactQueryClientProvider } from 'react-query';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 export default function Home() {
-  const queryClient = new QueryClient();
+  const router = useRouter();
   
+
+  useEffect(() => {
+    router.push('/login');
+  });
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        
-      </div>
-    </main>
+    <main/>
   )
 }
